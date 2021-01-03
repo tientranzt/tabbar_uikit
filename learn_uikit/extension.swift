@@ -11,31 +11,31 @@ import UIKit
 extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor? = nil,
-                right: NSLayoutXAxisAnchor? = nil,
+                right : NSLayoutXAxisAnchor? = nil,
+                bottom : NSLayoutYAxisAnchor? = nil,
                 left : NSLayoutXAxisAnchor? = nil,
-                bottom: NSLayoutYAxisAnchor? = nil,
-                paddingTop : CGFloat,
-                paddingRight: CGFloat,
-                paddingBottom : CGFloat,
-                paddingLeft : CGFloat,
-                width: CGFloat? = nil,
-                height: CGFloat? = nil)  {
-        
+                paddingTop : CGFloat = 0,
+                paddingRight : CGFloat = 0,
+                paddingBottom : CGFloat = 0,
+                paddingLeft : CGFloat = 0,
+                width : CGFloat? = nil,
+                height : CGFloat? = nil)  {
         translatesAutoresizingMaskIntoConstraints = false
-        if let top =  top {
+            
+        if let top = top {
             topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }
         
-        if let left =  left{
+        if let right = right {
+            rightAnchor.constraint(equalTo: right, constant: paddingRight).isActive = true
+        }
+        
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
+        }
+        
+        if let left = left {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
-        }
-        
-        if let right =  right{
-            rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
-        }
-        
-        if let bottom =  bottom{
-            bottom.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
         }
         
         if let width = width {
@@ -45,6 +45,7 @@ extension UIView {
         if let height = height {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
+
     }
     
     func centerXAnchor(inView view  : UIView)  {

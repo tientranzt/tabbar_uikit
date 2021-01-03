@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
   
      
-        window?.rootViewController = HomeController()
+        window?.rootViewController = TableViewController()
     
     }
 
